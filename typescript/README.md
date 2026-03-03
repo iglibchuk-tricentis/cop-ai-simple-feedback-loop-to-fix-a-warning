@@ -2,6 +2,8 @@
 
 A simple TypeScript todo application for practicing AI feedback loops. Learn to reduce pain by translating human intent into action, verified through continuous ground-truth feedback loops.
 
+![Feedback Loop](../feedback-loop.svg)
+
 ## What you should do
 
 Guide an agent to:
