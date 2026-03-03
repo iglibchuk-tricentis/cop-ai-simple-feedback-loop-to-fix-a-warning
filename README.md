@@ -24,12 +24,10 @@ Step 2: Guide an agent to:
 
 ## Constraints
 
-- Fix one warning at a time
-- One warning per PR
-- The agent does the heavy lifting
-- The agent does not occupy your main workspace
-    - runs somehow in the background
-    - does not make changes in your current branch, where you are working on something else
+- Small Steps: Fix one warning per PR
+- Persistent Process: Process File / Skill
+- Review: The Agent should review its own work
+- Background: The Agent does not occupy your main workspace (It is not working on your development environment / your branch)
 
 ## Possible Solutions
 
