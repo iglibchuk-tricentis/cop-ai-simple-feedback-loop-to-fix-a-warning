@@ -14,57 +14,49 @@ This document describes a Test-Driven Development (TDD) approach for systematica
 ## Process Workflow
 
 1. Run compiler/linter for each language:
-   - run csharp\firts-warning.ps1
+   - build the project with dotnet tool 
    
 2. Understand the warning:
    - Read compiler documentation
    - Research best practices
    - Examine affected code context
 
-3. Create a branch in the repository for fixing the selected issue
+3. Create a branch in the repository for fixing the selected issue. It is important to select only one warning per time
+   - run git to create a wokrtree with a dedicated branch for fixing the selected warning
 
-### Phase 3: Test Implementation (TDD Cycle)
+4. Run Tests (Green)
+   - Verify tests are green before fixing
+   - Confirm baseline behavior
 
-#### Step 1: Run Tests (Green)
-- Verify tests fail or are affected by the warning
-- Confirm baseline behavior
-- Commit changes (use C:\Program Files\Git\bin\git.exe)
+5. Make Minimal Changes (GREEN)
+   - Apply the smallest fix to resolve the warning
+   - Commit changes (use C:\Program Files\Git\bin\git.exe)
+   - Examples:
+      - Remove unused variables
+      - Add proper null checks
+      - Fix type mismatches
+      - Add resource cleanup (dispose/try-finally)
 
-#### Step 2: Make Minimal Changes (GREEN)
-- Apply the smallest fix to resolve the warning
-- Examples:
-  - Remove unused variables
-  - Add proper null checks
-  - Fix type mismatches
-  - Add resource cleanup (dispose/try-finally)
+6. Run Tests Again
+   - Verify all tests pass
+   - Run linter/compiler to confirm the selected warning is resolved
+   - Commit changes (use C:\Program Files\Git\bin\git.exe)
+   - Commit push the branch (use C:\Program Files\Git\bin\git.exe)
 
-#### Step 3: Run Tests Again
-- Verify all tests pass
-- Run linter/compiler to confirm warning is resolved
-- Commit changes (use C:\Program Files\Git\bin\git.exe)
+7. Create a PR via git for the fixed warning
 
-### Phase 4: Create a PR for changes
-- create a PR via git
-
-## Implementation Checklist
-
-- [ ] Identify and list all warnings
-- [ ] Fix warnings one at a time
-- [ ] Verify tests pass after each fix
-- [ ] Run full test suite
-- [ ] Confirm no new warnings
-- [ ] Commit was created
+8. Continue with step 3 but for the next warning
 
 ## Tools & Commands
 
 ### C#
 ```bash
 # Build and treat warnings as errors
-dotnet build .\csharp\TodoApp.slnx
+dotnet build .\TodoApp.slnx --no-incremental 2>&1
 
 # Run tests
-dotnet test .\csharp\TodoApp.slnx
+dotnet test .\TodoApp.slnx
 
 # Run specific test
-dotnet test .\csharp\TodoApp.slnx --filter "TestName"
+dotnet test .\TodoApp.slnx --filter "TestName"
 ```
