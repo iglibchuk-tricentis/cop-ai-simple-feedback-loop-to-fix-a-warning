@@ -21,6 +21,8 @@ This document describes a Test-Driven Development (TDD) approach for systematica
    - Research best practices
    - Examine affected code context
 
+3. Create a branch in the repository for fixing the selected issue
+
 ### Phase 3: Test Implementation (TDD Cycle)
 
 #### Step 1: Run Tests (Green)
@@ -41,6 +43,9 @@ This document describes a Test-Driven Development (TDD) approach for systematica
 - Run linter/compiler to confirm warning is resolved
 - Commit changes (use C:\Program Files\Git\bin\git.exe)
 
+### Phase 4: Create a PR for changes
+- create a PR via git
+
 ## Implementation Checklist
 
 - [ ] Identify and list all warnings
@@ -48,6 +53,7 @@ This document describes a Test-Driven Development (TDD) approach for systematica
 - [ ] Verify tests pass after each fix
 - [ ] Run full test suite
 - [ ] Confirm no new warnings
+- [ ] Commit was created
 
 ## Tools & Commands
 
